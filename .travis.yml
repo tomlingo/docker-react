@@ -1,0 +1,8 @@
+sudo: required
+services:
+  - docker
+  before_install:
+    - docker build -t tomlingo/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run tomlingo/docker-react npm run test -- --coverage
