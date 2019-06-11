@@ -1,8 +1,9 @@
 sudo: required
 services:
   - docker
-  before_install:
-    - docker build -t tomlingo/docker-react -f Dockerfile.dev .
+
+before_install:
+  - docker build -t tomlingo/docker-react -f Dockerfile.ci .
 
 script:
-  - docker run tomlingo/docker-react npm run test -- --coverage
+  - docker run -t tomlingo/docker-react npm run test -- --coverage
